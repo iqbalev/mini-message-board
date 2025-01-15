@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Message Board: Create Message</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
     <main>
@@ -11,15 +13,17 @@
       <form method="POST" action="/new" class="new-message-form">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" id="username" name="username" />
+          <input type="text" id="username" name="username" required />
         </div>
 
         <div class="form-group">
           <label for="messageText">Message</label>
-          <textarea name="messageText" id="messageText"></textarea>
+          <textarea name="messageText" id="messageText" required></textarea>
         </div>
 
-        <button type="submit">Post</button>
+        <div class="button-group">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </main>
   </body>
