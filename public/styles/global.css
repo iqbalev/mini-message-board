@@ -10,10 +10,13 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-p,
 h1,
 h2,
-label {
+p,
+label,
+input,
+textarea,
+button {
   color: #d1d5db;
 }
 
@@ -21,12 +24,9 @@ input,
 textarea,
 button {
   font-family: inherit;
-  background-color: #d1d5db;
-  border: none;
   font-size: 16px;
 }
 
 button {
   cursor: pointer;
-  color: #111827;
 }

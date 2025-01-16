@@ -7,6 +7,10 @@ main {
   min-height: 100dvh;
 }
 
+h2 {
+  color: #93c5fd;
+}
+
 .new-message-form {
   display: flex;
   flex-direction: column;
@@ -16,7 +20,23 @@ main {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+}
+
+input {
+  padding: 8px 12px;
+  width: 400px;
+  background-color: transparent;
+  border: 1px solid #6b7280;
+}
+
+textarea {
+  height: 200px;
+  width: 400px;
+  padding: 12px;
+  resize: none;
+  background-color: transparent;
+  border: 1px solid #6b7280;
 }
 
 .button-group {
@@ -26,17 +46,12 @@ main {
 .button-group button {
   flex: 1;
   padding: 8px;
+  background-color: transparent;
+  border: 1px solid #6b7280;
+  font-weight: 600;
+  color: #93c5fd;
 }
 
-input {
-  padding: 8px 12px;
-  width: 400px;
-}
-
-textarea {
-  height: 200px;
-  width: 400px;
-  padding: 12px;
-
-  resize: none;
+.button-group button:hover {
+  border-color: #93c5fd;
 }
