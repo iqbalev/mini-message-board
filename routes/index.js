@@ -3,7 +3,7 @@ import getFormattedDateTime from "../utils/getFormattedDateTime.js";
 
 const messages = [
   {
-    username: "Geralt of Rivia",
+    username: "Geralt_TheWhiteWolf",
     date: getFormattedDateTime(),
     text: "Wind's howling.",
   },
@@ -13,7 +13,7 @@ const messages = [
     text: "Fus-Ro-Dah!",
   },
   {
-    username: "David Martinez",
+    username: "davidMartinez_2076",
     date: getFormattedDateTime(),
     text: "I'm gonna take you there myself, fly you to the moon. That's a promise!",
   },
