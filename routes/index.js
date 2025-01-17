@@ -1,13 +1,15 @@
 import { Router } from "express";
-import getMessage from "../controllers/getMessage.js";
-import getForm from "../controllers/getForm.js";
-import postMessage from "../controllers/postMessage.js";
+import {
+  getMessageList,
+  getMessageForm,
+  postNewMessage,
+} from "../controllers/messageControllers.js";
 
 const index = Router();
 
-index.get("/", getMessage);
-index.get("/new", getForm);
+index.get("/", getMessageList);
+index.get("/create-new-message", getMessageForm);
 
-index.post("/new", postMessage);
+index.post("/create-new-message", postNewMessage);
 
 export default index;

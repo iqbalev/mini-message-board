@@ -1,9 +1,16 @@
 import messages from "../database/db.js";
 import getFormattedDateTime from "../utils/getFormattedDateTime.js";
 
-let nextId = 4;
+export async function getMessageList(req, res) {
+  res.render("index", { messages: messages });
+}
 
-async function postMessage(req, res) {
+export async function getMessageForm(req, res) {
+  res.render("form");
+}
+
+let nextId = 4;
+export async function postNewMessage(req, res) {
   const { messageText, username } = req.body;
 
   messages.push({
@@ -15,5 +22,3 @@ async function postMessage(req, res) {
 
   res.redirect("/");
 }
-
-export default postMessage;
