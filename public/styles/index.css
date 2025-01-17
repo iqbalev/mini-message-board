@@ -30,6 +30,8 @@ h2 {
 .message-header {
   display: flex;
   gap: 6px;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid #6b7280;
   margin-bottom: -1px;
   padding: 6px 12px;
@@ -38,6 +40,11 @@ h2 {
 .message-header p {
   color: #93c5fd;
   font-weight: 600;
+}
+
+.message-header a {
+  font-size: 0.8rem;
+  padding: initial;
 }
 
 .message-body {
@@ -58,11 +65,14 @@ h2 {
   align-items: flex-start;
 }
 
+.button-group a {
+  border: 1px solid #6b7280;
+}
+
 a {
   padding: 8px;
   color: #93c5fd;
   background-color: transparent;
-  border: 1px solid #6b7280;
   text-decoration: none;
   font-weight: 600;
 }

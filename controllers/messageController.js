@@ -5,6 +5,20 @@ export async function getMessageList(req, res) {
   res.render("index", { messages: messages });
 }
 
+export async function getMessageDetails(req, res) {
+  const { messageId } = req.params;
+
+  const messageDetails = messages.find(
+    (message) => message.id === Number(messageId)
+  );
+
+  if (!messageDetails) {
+    console.log("Error: Path not found.");
+  }
+
+  res.render("messageDetails", { message: messageDetails });
+}
+
 export async function getMessageForm(req, res) {
   res.render("form");
 }
