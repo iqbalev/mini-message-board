@@ -3,7 +3,7 @@ import {
   getMessageList,
   getMessageForm,
   postNewMessage,
-} from "../controllers/messageControllers.js";
+} from "../controllers/messageController.js";
 
 const index = Router();
 
