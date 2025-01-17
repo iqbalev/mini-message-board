@@ -1,44 +1,13 @@
 import { Router } from "express";
-import getFormattedDateTime from "../utils/getFormattedDateTime.js";
-
-const messages = [
-  {
-    username: "Geralt_TheWhiteWolf",
-    date: getFormattedDateTime(),
-    text: "Wind's howling.",
-  },
-  {
-    username: "Dovahkiin",
-    date: getFormattedDateTime(),
-    text: "Fus-Ro-Dah!",
-  },
-  {
-    username: "davidMartinez_2076",
-    date: getFormattedDateTime(),
-    text: "I'm gonna take you there myself, fly you to the moon. That's a promise!",
-  },
-];
+import getMessage from "../controllers/getMessage.js";
+import getForm from "../controllers/getForm.js";
+import postMessage from "../controllers/postMessage.js";
 
 const index = Router();
 
-index.get("/", (req, res) => {
-  res.render("index", { messages: messages });
-});
+index.get("/", getMessage);
+index.get("/new", getForm);
 
-index.get("/new", (req, res) => {
-  res.render("form");
-});
-
-index.post("/new", (req, res) => {
-  const { messageText, username } = req.body; // this is retrieved from the "name" property of the input field
-
-  messages.push({
-    username: username,
-    date: getFormattedDateTime(),
-    text: messageText,
-  });
-
-  res.redirect("/");
-});
+index.post("/new", postMessage);
 
 export default index;
