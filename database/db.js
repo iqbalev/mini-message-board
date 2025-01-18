@@ -19,6 +19,6 @@ const messages = [
     date: getFormattedDateTime(),
     text: "I'm gonna take you there myself, fly you to the moon. That's a promise!",
   },
-];
+].sort((a, b) => b.id - a.id);
 
 export default messages;

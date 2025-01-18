@@ -34,5 +34,7 @@ export async function postNewMessage(req, res) {
     text: messageText,
   });
 
+  messages.sort((a, b) => b.id - a.id);
+
   res.redirect("/");
 }
