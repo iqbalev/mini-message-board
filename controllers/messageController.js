@@ -1,3 +1,4 @@
+import { validationResult } from "express-validator";
 import messages from "../database/db.js";
 import getFormattedDateTime from "../utils/getFormattedDateTime.js";
 
@@ -25,6 +26,11 @@ export async function getMessageForm(req, res) {
 
 let nextId = 4;
 export async function postNewMessage(req, res) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(401).render("form", { errors: errors.array() });
+  }
+
   const { messageText, username } = req.body;
 
   messages.push({
