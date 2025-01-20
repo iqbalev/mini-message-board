@@ -21,12 +21,13 @@ export async function getMessageDetails(req, res) {
 }
 
 export async function getMessageForm(req, res) {
-  res.render("form");
+  res.render("form", { errors: [] });
 }
 
 let nextId = 4;
 export async function postNewMessage(req, res) {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(401).render("form", { errors: errors.array() });
   }

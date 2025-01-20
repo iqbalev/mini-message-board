@@ -11,19 +11,11 @@
     <main>
       <h2>Create New Message</h2>
 
-      <% if (locals.errors) {%>
-      <article class="error-message">
-        <ul>
-          <% errors.forEach((error) => { %>
-          <li><%= error.msg %></li>
-          <% }); %>
-        </ul>
-      </article>
-      <% } %>
-
       <form method="POST" action="/create-new-message" class="new-message-form">
         <div class="form-group">
           <label for="username">Username</label>
+          <%- include("partials/validationErrorMessage", {errors: errors, field:
+          "username"}) %>
           <input
             type="text"
             id="username"
@@ -35,6 +27,8 @@
 
         <div class="form-group">
           <label for="messageText">Message</label>
+          <%- include("partials/validationErrorMessage", {errors: errors, field:
+          "messageText"}) %>
           <textarea
             name="messageText"
             id="messageText"

@@ -1,0 +1,7 @@
+<% if (errors && errors.some(error => error.path === field)) { %>
+<ul class="error-message">
+  <% errors .filter(error => error.path === field) .forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }); %>
+</ul>
+<% } %>

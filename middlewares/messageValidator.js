@@ -6,9 +6,7 @@ const newMessageValidation = [
     .notEmpty()
     .withMessage("Username is required.")
     .isLength({ min: 3, max: 20 })
-    .withMessage("Username must be between 3 and 20 characters.")
-    .isAlphanumeric()
-    .withMessage("Username can only contain letters and numbers."),
+    .withMessage("Username must be between 3 and 20 characters."),
   body("messageText").trim().notEmpty().withMessage("Message cannot be empty."),
 ];
 
