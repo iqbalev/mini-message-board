@@ -10,11 +10,27 @@
   <body>
     <main>
       <h2>Message Details</h2>
-      <ul class="message-details">
-        <li>Posted by: <span><%= message.username %></span></li>
-        <li>Date Posted: <span><%= message.date %></span></li>
-        <li>Message: <span><%= message.text %></span></li>
-      </ul>
+
+      <section class="message-details">
+        <div class="details-content">
+          <p>Posted by</p>
+          <p><%= message.username %></p>
+        </div>
+
+        <div class="details-content">
+          <p>Date Posted</p>
+          <p><%= message.date %></p>
+        </div>
+
+        <div class="details-content">
+          <p>Message</p>
+          <p><%= message.text %></p>
+        </div>
+      </section>
+
+      <section class="button-group">
+        <a href="/">Back to Home</a>
+      </section>
     </main>
   </body>
 </html>

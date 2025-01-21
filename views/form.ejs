@@ -12,7 +12,7 @@
       <h2>Create New Message</h2>
 
       <form method="POST" action="/create-new-message" class="new-message-form">
-        <div class="form-group">
+        <section class="form-group">
           <label for="username">Username</label>
           <%- include("partials/validationErrorMessage", {errors: errors, field:
           "username"}) %>
@@ -23,9 +23,9 @@
             placeholder="Example: john_doe"
             required
           />
-        </div>
+        </section>
 
-        <div class="form-group">
+        <section class="form-group">
           <label for="messageText">Message</label>
           <%- include("partials/validationErrorMessage", {errors: errors, field:
           "messageText"}) %>
@@ -35,11 +35,12 @@
             placeholder="What would you like to say?"
             required
           ></textarea>
-        </div>
+        </section>
 
-        <div class="button-group">
-          <button type="submit">Submit</button>
-        </div>
+        <section class="button-group">
+          <button type="submit">Post</button>
+          <a href="/">Back to Home</a>
+        </section>
       </form>
     </main>
   </body>
