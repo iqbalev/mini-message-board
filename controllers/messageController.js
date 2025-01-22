@@ -1,14 +1,14 @@
 import { validationResult } from "express-validator";
-import messages from "../database/db.js";
-import getFormattedDateTime from "../utils/getFormattedDateTime.js";
+import { fetchMessages, addMessage } from "../database/queries.js";
 
 export async function getMessageList(req, res) {
+  const messages = await fetchMessages();
   res.render("index", { messages: messages });
 }
 
 export async function getMessageDetails(req, res) {
   const { messageId } = req.params;
-
+  const messages = await fetchMessages();
   const messageDetails = messages.find(
     (message) => message.id === Number(messageId)
   );
@@ -24,7 +24,6 @@ export async function getMessageForm(req, res) {
   res.render("form", { errors: [] });
 }
 
-let nextId = 4;
 export async function postNewMessage(req, res) {
   const errors = validationResult(req);
 
@@ -32,16 +31,7 @@ export async function postNewMessage(req, res) {
     return res.status(401).render("form", { errors: errors.array() });
   }
 
-  const { messageText, username } = req.body;
-
-  messages.push({
-    id: nextId++,
-    username: username,
-    date: getFormattedDateTime(),
-    text: messageText,
-  });
-
-  messages.sort((a, b) => b.id - a.id);
-
+  const { username, messageText } = req.body;
+  addMessage(username, messageText);
   res.redirect("/");
 }
