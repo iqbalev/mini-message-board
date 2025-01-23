@@ -32,6 +32,6 @@ export async function postNewMessage(req, res) {
   }
 
   const { username, messageText } = req.body;
-  addMessage(username, messageText);
+  await addMessage(username, messageText);
   res.redirect("/");
 }
