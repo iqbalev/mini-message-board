@@ -1,12 +1,14 @@
+import asyncHandler from "express-async-handler";
 import { validationResult } from "express-validator";
 import { fetchMessages, addMessage } from "../database/queries.js";
+import NotFoundError from "../middlewares/customError.js";
 
-export async function getMessageList(req, res) {
+export const getMessageList = asyncHandler(async (req, res) => {
   const messages = await fetchMessages();
   res.render("index", { messages: messages });
-}
+});
 
-export async function getMessageDetails(req, res) {
+export const getMessageDetails = asyncHandler(async (req, res) => {
   const { messageId } = req.params;
   const messages = await fetchMessages();
   const messageDetails = messages.find(
@@ -14,24 +16,24 @@ export async function getMessageDetails(req, res) {
   );
 
   if (!messageDetails) {
-    console.log("Error: Path not found.");
+    throw new NotFoundError("Message Not Found");
   }
 
   res.render("messageDetails", { message: messageDetails });
-}
+});
 
-export async function getMessageForm(req, res) {
+export const getMessageForm = asyncHandler(async (req, res) => {
   res.render("form", { errors: [] });
-}
+});
 
-export async function postNewMessage(req, res) {
+export const postNewMessage = asyncHandler(async (req, res) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    return res.status(401).render("form", { errors: errors.array() });
+    return res.status(400).render("form", { errors: errors.array() });
   }
 
   const { username, messageText } = req.body;
   await addMessage(username, messageText);
-  res.redirect("/");
-}
+  return res.redirect("/");
+});
